@@ -46,7 +46,7 @@ def fanoff(bot,update):
 
 
 def demo(bot,update):
-  a=bot.message.text
+  a=bot.message.text.lower
   a=a.split()
   if 'light' in a and 'on'in a:
    lighton(bot,update)
