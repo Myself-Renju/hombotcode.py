@@ -56,6 +56,9 @@ def demo(bot,update):
     fanon(bot,update)
   elif 'fan' in a and 'off'in a:
     fanoff(bot,update) 
+  else:
+    bot.message.reply_text("INVALID COMMAND")
+
   
   
 
@@ -65,5 +68,6 @@ dp=u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,demo))
 u.start_polling()
 u.idle()
+
 
 
