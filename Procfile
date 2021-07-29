@@ -1,1 +1,1 @@
-worker: python hombot.py
+worker: python hombotcode.py
