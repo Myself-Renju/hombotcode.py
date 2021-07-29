@@ -47,13 +47,14 @@ def fanoff(bot,update):
 
 def demo(bot,update):
   a=bot.message.text
-  if a=="hi":
+  a=a.split()
+  if 'light' in a and 'on'in a:
    lighton(bot,update)
-  elif a=='h2':
+  elif 'light' in a and 'off'in a:
     lightoff(bot,update)
-  elif a=='h3':
+  elif 'fan' in a and 'on'in a:
     fanon(bot,update)
-  elif a=='h4':
+  elif 'fan' in a and 'off'in a:
     fanoff(bot,update) 
   
   
@@ -64,4 +65,5 @@ dp=u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,demo))
 u.start_polling()
 u.idle()
+
 
