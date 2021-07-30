@@ -44,9 +44,13 @@ def fanoff(bot,update):
   data = aio.receive('fan')
   print('Received value: {0}'.format(data.value))
 
+def greeting(bot,update):
+  bot.message.reply_text("hi, what can i do for you?")
+  bot.message.reply_text("commands available only for fan and light now")
 
 def demo(bot,update):
-  a=bot.message.text.lower
+  a=bot.message.text
+  a=a.lower()
   a=a.split()
   if 'light' in a and 'on'in a:
    lighton(bot,update)
@@ -56,6 +60,7 @@ def demo(bot,update):
     fanon(bot,update)
   elif 'fan' in a and 'off'in a:
     fanoff(bot,update) 
+  elif a=='hi' or a=='hello':
   else:
     bot.message.reply_text("INVALID COMMAND")
 
