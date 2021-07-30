@@ -60,7 +60,8 @@ def demo(bot,update):
     fanon(bot,update)
   elif 'fan' in a and 'off'in a:
     fanoff(bot,update) 
-  elif a=='hi' or a=='hello':
+  elif 'hi' in a or 'hello'in a:
+    greeting(bot,update)
   else:
     bot.message.reply_text("INVALID COMMAND")
 
