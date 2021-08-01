@@ -1,4 +1,4 @@
-ffrom telegram.ext import Updater,MessageHandler,Filters
+from telegram.ext import Updater,MessageHandler,Filters
 ADAFRUIT_IO_USERNAME = "anas1605"
 ADAFRUIT_IO_KEY = "aio_DoaH58zwzx65lRtJ1cCwSD0bneIX"
 def lighton(bot,update):
@@ -65,6 +65,16 @@ def demo(bot,update):
     greeting(bot,update)
   else:
     bot.message.reply_text("INVALID COMMAND")
+
+  
+  
+
+BOT_TOKEN='1933670922:AAFgBvg1ME746QpL0UQYiQVufpoaII2TYWo'
+u=Updater(BOT_TOKEN,use_context=True)
+dp=u.dispatcher
+dp.add_handler(MessageHandler(Filters.text,demo))
+u.start_polling()
+u.idle()
 
   
   
