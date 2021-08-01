@@ -1,12 +1,13 @@
-from telegram.ext import Updater,MessageHandler,Filters
-
+ffrom telegram.ext import Updater,MessageHandler,Filters
+ADAFRUIT_IO_USERNAME = "anas1605"
+ADAFRUIT_IO_KEY = "aio_DoaH58zwzx65lRtJ1cCwSD0bneIX"
 def lighton(bot,update):
   chat_id=bot.message.chat_id
   path=''
   update.bot.sendPhoto(chat_id=chat_id,photo='https://static.scientificamerican.com/sciam/cache/file/2B38DE31-C1D3-4339-8808D61972976EE4.jpg')
   bot.message.reply_text("the light is on ")
   from Adafruit_IO import Client
-  aio = Client('anas1605', 'aio_HkhB98E5BuknXMaxgCzfKy4ow3qU')
+  aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
   aio.send('light', 1)
   data = aio.receive('light')
   print('Received value: {0}'.format(data.value))
@@ -17,7 +18,7 @@ def lightoff(bot,update):
   update.bot.sendPhoto(chat_id=chat_id,photo='https://ak.picdn.net/shutterstock/videos/16051507/thumb/1.jpg')
   bot.message.reply_text("the light is off")
   from Adafruit_IO import Client
-  aio = Client('anas1605', 'aio_HkhB98E5BuknXMaxgCzfKy4ow3qU')
+  aio = Client('anas1605', ADAFRUIT_IO_KEY)
   aio.send('light', 0)
   data = aio.receive('light')
   print('Received value: {0}'.format(data.value))
@@ -28,7 +29,7 @@ def fanon(bot,update):
   update.bot.sendPhoto(chat_id=chat_id,photo="https://previews.123rf.com/images/llstock/llstock1909/llstock190900033/130060912-a-working-ceiling-fan-on-a-white-ceiling-close-up-with-blurred-fan-blades-three-lamps-daytime-.jpg")
   bot.message.reply_text("the fan is on")
   from Adafruit_IO import Client
-  aio = Client('anas1605', 'aio_HkhB98E5BuknXMaxgCzfKy4ow3qU')
+  aio = Client('anas1605',ADAFRUIT_IO_KEY)
   aio.send('fan', 1)
   data = aio.receive('fan')
   print('Received value: {0}'.format(data.value))
@@ -39,7 +40,7 @@ def fanoff(bot,update):
   update.bot.sendPhoto(chat_id=chat_id,photo='https://images-na.ssl-images-amazon.com/images/I/31fec2V1l4L._SX425_.jpg')
   bot.message.reply_text("the fan is off")
   from Adafruit_IO import Client
-  aio = Client('anas1605', 'aio_HkhB98E5BuknXMaxgCzfKy4ow3qU')
+  aio = Client('anas1605',ADAFRUIT_IO_KEY)
   aio.send('fan', 0)
   data = aio.receive('fan')
   print('Received value: {0}'.format(data.value))
@@ -74,17 +75,5 @@ dp=u.dispatcher
 dp.add_handler(MessageHandler(Filters.text,demo))
 u.start_polling()
 u.idle()
-
-
-  
-  
-
-BOT_TOKEN='1933670922:AAFgBvg1ME746QpL0UQYiQVufpoaII2TYWo'
-u=Updater(BOT_TOKEN,use_context=True)
-dp=u.dispatcher
-dp.add_handler(MessageHandler(Filters.text,demo))
-u.start_polling()
-u.idle()
-
 
 
